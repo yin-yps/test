@@ -30,6 +30,26 @@ pipeline {
         }
       }
     }
+    stage('Parallel stage'){
+      failFast true
+      parallel {
+        stage('parallelone') {
+          steps{
+            echo "parallel one"
+          }
+        }
+        stage('parallel_tow'){
+          steps{
+            echo "parallel tow"
+          }
+        }
+        stage('parallel three'){
+          steps{
+            echo "parallel three"
+          }
+        }
+      }
+    }
   }
 }
 
