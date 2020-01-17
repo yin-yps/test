@@ -7,6 +7,14 @@ pipeline {
   }
   stages {
     stage('build') {
+      input {
+        message "Should we continue?"
+        ok "Yes,we should"
+        submitter "jenkins,pengyin"
+        parameters {
+          string(name: 'PERSON',defaultValue: 'Jenkins',description: 'Who should continue')
+        }
+      }
       steps {
         sh 'echo "Hello World"'
         sh '''
